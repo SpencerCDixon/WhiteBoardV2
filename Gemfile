@@ -7,6 +7,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'haml-rails'
 gem 'jquery-rails'
+gem 'foundation-rails'
 
 # Devise/Omniauth/User Setup
 gem 'therubyracer'
@@ -15,6 +16,10 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
+
+group :development do
+  gem 'erb2haml'
+end
 
 group :test do
   gem 'launchy', require: false
