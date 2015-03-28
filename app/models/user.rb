@@ -60,6 +60,10 @@ class User < ActiveRecord::Base
     self.email && self.email !~ TEMP_EMAIL_REGEX
   end
 
+  def has_family?
+    families.any?
+  end
+
   private
 
   def build_profile
