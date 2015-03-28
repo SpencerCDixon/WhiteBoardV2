@@ -23,6 +23,7 @@ end
 
 group :test do
   gem 'launchy', require: false
+  gem 'fuubar'
 end
 
 group :development, :test do

@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   root "welcome#index"
 
   resources :profiles, only: [:new, :create, :show]
+  resource :family, only: [:new, :create]
 end

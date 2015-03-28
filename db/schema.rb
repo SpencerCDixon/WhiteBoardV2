@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150328192251) do
+ActiveRecord::Schema.define(version: 20150328214633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "families", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "family_memberships", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "family_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "family_memberships", ["user_id", "family_id"], name: "index_family_memberships_on_user_id_and_family_id", unique: true, using: :btree
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
