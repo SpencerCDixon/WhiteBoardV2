@@ -1,4 +1,3 @@
-%h1 Welcome,
-= @profile.user.email
+%h1= "Welcome, #{@profile.user.email}"
 
-= link_to 'Create or join family', new_family_path, class: "button tiny"
+= link_to 'Create or join family', new_family_path, class: "button"
