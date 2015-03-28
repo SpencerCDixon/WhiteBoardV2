@@ -23,7 +23,6 @@ end
 
 group :test do
   gem 'launchy', require: false
-  # gem 'fuubar'
 end
 
 group :development, :test do
@@ -33,6 +32,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'shoulda-matchers'
   gem 'email_spec'
+  gem 'valid_attribute'
 end
 
 group :production do
