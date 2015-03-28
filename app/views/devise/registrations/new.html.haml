@@ -6,6 +6,10 @@
     %br/
     = f.email_field :email, autofocus: true
   .field
+    = f.label :name
+    %br/
+    = f.text_field :name, autofocus: true
+  .field
     = f.label :password
     - if @validatable
       %em
@@ -18,4 +22,5 @@
     = f.password_field :password_confirmation, autocomplete: "off"
   .actions
     = f.submit "Sign up", class: "button"
+
 = render "devise/shared/links"

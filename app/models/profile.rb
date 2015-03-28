@@ -8,6 +8,6 @@ class Profile < ActiveRecord::Base
   end
 
   def set_slug
-    self[:slug] = user.email.parameterize
+    self[:slug] = user.name.parameterize
   end
 end
