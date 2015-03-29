@@ -6,7 +6,14 @@ class User < ActiveRecord::Base
   TEMP_EMAIL_PREFIX = 'change@me'
   TEMP_EMAIL_REGEX = /\Achange@me/
 
+  has_one :profile
+  has_many :family_memberships
+  has_many :families, through: :family_memberships
+
+  after_create :build_profile
+
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
+  validates :name, presence: true
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
@@ -49,7 +56,21 @@ class User < ActiveRecord::Base
     user
   end
 
+  def family
+    families.first
+  end
+
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
+  end
+
+  def has_family?
+    families.any?
+  end
+
+  private
+
+  def build_profile
+    Profile.create!(user: self)
   end
 end
