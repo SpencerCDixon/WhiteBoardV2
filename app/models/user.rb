@@ -13,10 +13,7 @@ class User < ActiveRecord::Base
   after_create :build_profile
 
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
-
-  def build_profile
-    Profile.create!(user: self)
-  end
+  validates :name, presence: true
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
@@ -61,5 +58,15 @@ class User < ActiveRecord::Base
 
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
+  end
+
+  def has_family?
+    families.any?
+  end
+
+  private
+
+  def build_profile
+    Profile.create!(user: self)
   end
 end

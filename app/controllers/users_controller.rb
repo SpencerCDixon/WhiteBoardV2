@@ -17,10 +17,15 @@ class UsersController < ApplicationController
   def finish_signup
     if request.patch? && params[:user] && params[:user][:email]
       if @user.update(user_params)
+        # reset profile slug
+        @user.profile.set_slug
+        @user.profile.save
+
         sign_in(@user, bypass: true)
         redirect_to root_path, notice: 'Your profile was successfully updated.'
       else
         @show_errors = true
+        @user.errors.messages[:account] = ["might be created with a different provider"]
       end
     end
   end

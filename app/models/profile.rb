@@ -8,6 +8,6 @@ class Profile < ActiveRecord::Base
   end
 
   def set_slug
-    self[:slug] = user.email.parameterize
+    self[:slug] = user.name.parameterize + Digest::SHA1.hexdigest([Time.now, rand].join)[0..5]
   end
 end

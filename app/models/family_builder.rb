@@ -6,7 +6,7 @@ class FamilyBuilder
   end
 
   def build
-    if user_has_family?
+    if user.has_family?
       false
     else
       create_family_with_membership
@@ -15,10 +15,6 @@ class FamilyBuilder
   end
 
   private
-
-  def user_has_family?
-    user.families.any?
-  end
 
   def create_family_with_membership
     family = Family.new(family_params)
