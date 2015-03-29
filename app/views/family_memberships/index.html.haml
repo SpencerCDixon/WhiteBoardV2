@@ -1,0 +1,8 @@
+%h1 Family Members
+
+%ul.family-members
+  - @members.each do |member|
+    %li.callout.panel
+      %strong= "#{member.name} - #{member.email}"
+      .right= link_to 'Private Message', '#', class: 'button tiny success'
+
