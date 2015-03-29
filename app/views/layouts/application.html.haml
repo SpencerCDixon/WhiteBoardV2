@@ -1,12 +1,13 @@
-!!!
-%html
+!!! html
+%html(lang="en")
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta(charset="utf-8")
+    %meta(content="width=device-width, initial-scale=1.0" name="viewport")
 
     %title= content_for?(:title) ? yield(:title) : "Whiteboard - FMS"
 
-    = stylesheet_link_tag    'application', media: 'all'
-    = javascript_include_tag 'application'
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "vendor/modernizr"
     = csrf_meta_tags
 
   %body
@@ -14,6 +15,9 @@
     = render 'layouts/notifications'
 
     .row
-      = yield
+      .small-12.columns
+        #content
+          ~ yield
 
     = javascript_include_tag "application"
+
