@@ -8,7 +8,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'haml-rails'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
-gem 'foundation-rails', '5.1.1.0'
+gem 'foundation-rails', '5.5.1.0'
 
 # Devise/Omniauth/User Setup
 gem 'therubyracer'
