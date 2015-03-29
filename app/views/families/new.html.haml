@@ -1,7 +1,7 @@
 %h1 Create or join a family
 
 %h2 Create:
-= form_for @family, url: family_path do |f|
+= form_for @family, url: families_path do |f|
   = f.label :name
   = f.text_field :name
 
