@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150329143322) do
+ActiveRecord::Schema.define(version: 20150329181524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,11 +32,12 @@ ActiveRecord::Schema.define(version: 20150329143322) do
   add_index "family_memberships", ["user_id", "family_id"], name: "index_family_memberships_on_user_id_and_family_id", unique: true, using: :btree
 
   create_table "family_messages", force: :cascade do |t|
-    t.integer  "user_id",    null: false
-    t.integer  "family_id",  null: false
-    t.text     "message",    null: false
+    t.integer  "user_id",             null: false
+    t.integer  "family_id",           null: false
+    t.text     "message",             null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "message_category_id", null: false
   end
 
   create_table "identities", force: :cascade do |t|
@@ -48,6 +49,12 @@ ActiveRecord::Schema.define(version: 20150329143322) do
   end
 
   add_index "identities", ["user_id"], name: "index_identities_on_user_id", using: :btree
+
+  create_table "message_categories", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.integer "user_id", null: false

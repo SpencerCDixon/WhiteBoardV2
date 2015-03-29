@@ -14,15 +14,7 @@
       %h2 Family Updates
 
   .row
-    %h2 Message Board
-    = form_for [current_user.family, @message] do |f|
-      = f.label :message
-      = f.text_area :message
-
-      = f.submit 'Create Message', class: 'button tiny'
-
-    %ul
-    - @messages.each do |message|
-      %li= "#{message.message} - by #{message.user.name}, #{time_ago_in_words(message.created_at)} ago"
-
+    = link_to 'Message Board',
+      family_family_messages_path(current_user.family),
+      class: "button tiny"
 
