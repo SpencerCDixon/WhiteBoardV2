@@ -6,6 +6,9 @@ feature 'create message on family message board' do
     scenario 'user in family can create a message' do
       FactoryGirl.create(:family_membership, user: user)
       FactoryGirl.create(:message_category, name: "chores")
+      FactoryGirl.create(:message_category, name: "general")
+      FactoryGirl.create(:message_category, name: "events")
+      FactoryGirl.create(:message_category, name: "sharables")
       sign_in_as user
 
       visit profile_path(user.profile)

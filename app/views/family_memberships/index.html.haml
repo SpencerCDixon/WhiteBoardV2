@@ -1,0 +1,8 @@
+%h1 Family Members
+
+%ul.family-members
+  - @members.each do |member|
+    %li.callout.panel
+      = member.name
+      = member.email
+

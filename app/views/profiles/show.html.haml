@@ -4,16 +4,7 @@
   = link_to 'Create or join family', new_family_path, class: "button"
 - else
   .row
-    .large-6.columns
-      %h2 Family Members
-      %ul
-        - current_user.family.users.each do |user|
-          %li= user.name
-
-    .large-6.columns
-      %h2 Family Updates
-
-  .row
+    = link_to 'Family Members', family_members_path(current_user.family), class: 'button tiny'
     = link_to 'Message Board',
       family_family_messages_path(current_user.family),
       class: "button tiny"

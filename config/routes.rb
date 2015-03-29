@@ -7,5 +7,6 @@ Rails.application.routes.draw do
 
   resources :families, only: [:new, :create] do
     resources :family_messages, only: [:create, :index]
+    resources :members, only: :index, controller: "family_memberships"
   end
 end
