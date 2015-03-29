@@ -3,6 +3,6 @@
 %ul.family-members
   - @members.each do |member|
     %li.callout.panel
-      = member.name
-      = member.email
+      %strong= "#{member.name} - #{member.email}"
+      .right= link_to 'Private Message', '#', class: 'button tiny success'
 
