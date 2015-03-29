@@ -19,4 +19,8 @@ FactoryGirl.define do
     user
     family
   end
+
+  factory :message_category do
+    name 'general'
+  end
 end
