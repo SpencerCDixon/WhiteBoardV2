@@ -7,9 +7,16 @@ class User < ActiveRecord::Base
   TEMP_EMAIL_REGEX = /\Achange@me/
 
   has_one :profile
+
   has_many :family_memberships
-  has_many :families, through: :family_memberships
+
+  has_many :families,
+    through: :family_memberships
+
   has_many :family_messages
+
+  has_many :family_invitations,
+    dependent: :destroy
 
   after_create :build_profile
 

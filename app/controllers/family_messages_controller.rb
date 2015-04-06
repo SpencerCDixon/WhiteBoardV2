@@ -1,11 +1,14 @@
 class FamilyMessagesController < ApplicationController
   before_action :fetch_family, only: [:index, :create]
+  before_action :authenticate_user!
 
   def index
     @general = @family.general_messages
     @events = @family.event_messages
     @chores = @family.chore_messages
     @sharables = @family.sharable_messages
+    @message = FamilyMessage.new
+    @messages = current_user.family.family_messages
   end
 
   def create
