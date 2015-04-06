@@ -9,13 +9,3 @@
       family_family_messages_path(current_user.family),
       class: "button tiny"
 
-    %h1 Invite Family Members
-    = form_for FamilyInvitation.new do |f|
-      = f.label :email
-      = f.text_field :email
-
-      = f.submit 'Send invite', class: "button success"
-
-
--# = link_to 'Family Invite Test', family_invitation_path(@invite), class: 'button'
-

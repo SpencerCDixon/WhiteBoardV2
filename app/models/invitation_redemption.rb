@@ -9,7 +9,6 @@ class InvitationRedemption
   end
 
   def persist!
-    binding.pry
     @invitation.user = @user
     @invitation.save!
 

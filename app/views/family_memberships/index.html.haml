@@ -1,5 +1,20 @@
 %h1 Family Members
 
+%h2 Invite Family Members
+= form_for @invitation do |f|
+  - if @invitation.errors.any?
+    %ul
+      - @invitation.errors.full_messages.each do |error|
+        %li= error
+
+  = f.label :email
+  = f.text_field :email
+
+  = f.label :name
+  = f.text_field :name
+
+  = f.submit 'Send invite', class: "button success"
+
 %ul.family-members
   - @members.each do |member|
     %li.callout.panel

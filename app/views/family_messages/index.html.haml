@@ -1,5 +1,5 @@
 %h1 Message Board
-= form_for [current_user.family, @message] do |f|
+= form_for [@family, @message] do |f|
   = f.label :message
   = f.text_area :message
 

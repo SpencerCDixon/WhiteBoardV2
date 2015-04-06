@@ -2,8 +2,12 @@ class FamilyInvitation < ActiveRecord::Base
   belongs_to :family
   belongs_to :user
 
-  validates :email, presence: true
-  validates :family, presence: true
+  validates :email,
+    presence: true,
+    uniqueness: true
+
+  validates :family,
+    presence: true
 
   scope :unredeemed, -> { where(user_id: nil) }
 
