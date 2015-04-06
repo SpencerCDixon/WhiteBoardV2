@@ -31,6 +31,6 @@ module WhiteBoardV2
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
-    config.action_mailer.default_url_options = { host: 'localhost:3000' }
+    config.action_mailer.default_url_options = { host: 'white-board-staging-v2.herokuapp.com' }
   end
 end
