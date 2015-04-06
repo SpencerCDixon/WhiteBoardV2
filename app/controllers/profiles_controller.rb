@@ -1,10 +1,7 @@
 class ProfilesController < ApplicationController
+  before_action :authenticate_user!
+
   def show
     @profile = Profile.find_by(slug: params[:id])
-    @message = FamilyMessage.new
-
-    if current_user.has_family?
-      @messages = current_user.family.family_messages
-    end
   end
 end

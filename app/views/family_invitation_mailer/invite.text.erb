@@ -1,0 +1,21 @@
+<p>Hey <%= @family_invitation.name.capitalize %>,<p>
+
+<p>
+  You have been invited to join the <%= @family_invitation.family.name %> family.
+</p>
+
+<p>
+<%= link_to 'Please click here to create an account and join the family', family_invitation_url(@family_invitation) %> or
+navigate to <%= family_invitation_url(@family_invitation) %> in your web browser.
+</p>
+
+<p>
+  Have fun with using White Board!  We hope it makes your life easier
+  and creates a better experience for you and the whole family.
+</p>
+
+<p>
+  Sincerely,
+  The White Board Team
+</p>
+
