@@ -9,4 +9,6 @@ Rails.application.routes.draw do
     resources :family_messages, only: [:create, :index]
     resources :members, only: :index, controller: "family_memberships"
   end
+
+  resources :family_invitations, only: [:new, :create, :show]
 end
