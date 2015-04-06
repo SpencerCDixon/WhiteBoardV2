@@ -1,4 +1,6 @@
 class FamiliesController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @family = Family.new
   end

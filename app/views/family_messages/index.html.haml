@@ -1,13 +1,38 @@
-%h1 Message Board
-= form_for [@family, @message] do |f|
-  = f.label :message
-  = f.text_area :message
+%h2.text-center= "Message Board - #{Date.today.strftime('%B %d, %Y')}"
+%a.button.expand{"data-reveal-id" => "myModal", :href => "#"} Add A Message To Today's Board
 
-  = f.label :message_category_id
-  = f.select :message_category_id, MessageCategory.all.map { |n| [n.name, n.id] }
+#myModal.reveal-modal{"aria-hidden" => "true", "aria-labelledby" => "modalTitle", "data-reveal" => "", :role => "dialog"}
+  = form_for [current_user.family, @message || FamilyMessage.new] do |f|
+    = f.label :message
+    = f.text_area :message
 
-  = f.submit 'Create Message', class: 'button tiny'
+    = f.label :message_category_id
+    = f.select :message_category_id, MessageCategory.all.map { |n| [n.name.capitalize, n.id] }
 
-%ul
-- @messages.each do |message|
-  %li= "#{message.message_category.name} - #{message.message} - by #{message.user.name}, #{time_ago_in_words(message.created_at)} ago"
+    = f.submit 'Create Message', class: 'button tiny'
+  %a.close-reveal-modal{"aria-label" => "Close"} ×
+
+
+.row
+  .large-6.columns
+    %h2 Sharables
+    %ul
+      - @sharables.each do |message|
+        %li.message.sharable= "#{message.message} - by #{message.user.name}, #{time_ago_in_words(message.created_at)} ago"
+
+    %h2 Chores
+    %ul
+      - @chores.each do |message|
+        %li.message.chore= "#{message.message} - by #{message.user.name}, #{time_ago_in_words(message.created_at)} ago"
+
+    %h2 Events
+    %ul
+      - @events.each do |message|
+        %li.message.event= "#{message.message} - by #{message.user.name}, #{time_ago_in_words(message.created_at)} ago"
+
+  .large-6.columns
+    %h2 General
+    %ul
+      - @general.each do |message|
+        %li.message.general= "#{message.message} - by #{message.user.name}, #{time_ago_in_words(message.created_at)} ago"
+
