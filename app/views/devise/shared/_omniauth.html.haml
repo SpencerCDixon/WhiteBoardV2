@@ -1,11 +1,11 @@
-- if devise_mapping.omniauthable?
-  - resource_class.omniauth_providers.each do |provider|
-    - if provider == :twitter
-      = link_to omniauth_authorize_path(resource_name, provider), class: "button expand social-media twitter" do
+.row
+  - if devise_mapping.omniauthable?
+    .small-6.columns
+      = link_to omniauth_authorize_path(resource_name, :twitter), class: "button expand social-media twitter" do
         %i.fa.fa-twitter.fa-2x
           Sign in with Twitter
-    - if provider == :google_oauth2
-      = link_to omniauth_authorize_path(resource_name, provider), class: "button expand social-media google" do
+    .small-6.columns
+      = link_to omniauth_authorize_path(resource_name, :google_oauth2), class: "button expand social-media google" do
         %i.fa.fa-google.fa-2x
           Sign in with Gmail
-    %br/
+      %br/
