@@ -6,7 +6,7 @@
   $hero-background-bottom: #20392B;
   $hero-color: white;
   $gradient-angle: 10deg;
-  $hero-image: asset_path('/desk');
+  $hero-image: 'http://s23.postimg.org/70ai92i97/biz_desk.jpg';
 
   @include background(url($hero-image), linear-gradient($gradient-angle, $hero-background-bottom, $hero-background-top), no-repeat $hero-background-top scroll);
   background-color: #324766;
@@ -35,12 +35,13 @@
         font-size: 3em;
         margin-bottom: 0.5em;
         font-style: 'Lato';
-        font-weight: 300;
+        color: white;
+        font-weight: 700;
 
         @include media($large-screen) {
           font-size: 3em;
           font-style: 'Lato';
-          font-weight: 300;
+          font-weight: 700;
         }
       }
 
@@ -49,10 +50,11 @@
         line-height: 1.4em;
         margin: 0 auto 3em auto;
         font-style: 'Lato';
+        color: white;
 
         @include media($large-screen) {
           font-size: 1.6em;
-          color: black;
+          color: white;
           max-width: 40%;
           font-style: 'Lato';
           font-weight: 300;
