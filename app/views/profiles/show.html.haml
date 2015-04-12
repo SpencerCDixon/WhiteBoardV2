@@ -4,8 +4,21 @@
   = link_to 'Create or join family', new_family_path, class: "button"
 - else
   .row
-    = link_to 'Family Members', family_members_path(current_user.family), class: 'button tiny'
-    = link_to 'Message Board',
-      family_family_messages_path(current_user.family),
-      class: "button tiny"
+    .small-4.columns
+      .callout.panel
+        = link_to 'Family Members',
+          family_members_path(current_user.family),
+          class: 'button tiny'
+
+    .small-4.columns
+      .callout.panel
+        = link_to 'Message Board',
+          family_family_messages_path(current_user.family),
+          class: "button tiny"
+
+    .small-4.columns
+      .callout.panel
+        = link_to 'Message Board',
+          family_family_messages_path(current_user.family),
+          class: "button tiny"
 
