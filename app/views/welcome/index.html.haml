@@ -1,3 +1,9 @@
-%h1 Welcome to White Board
+= content_for :hero do
+  .hero
+    .hero-inner
+      .hero-copy
+        %h1.hero-title Efficient Families Are Happy Families
+        %p.hero-subtitle Create a space for your family to connect
+      = link_to new_user_registration_path do
+        %button Learn More
 
-%p This is the welcome page! Other stuff will go here later
