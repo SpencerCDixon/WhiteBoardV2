@@ -1,0 +1,22 @@
+%h1 Mailbox
+
+%h3 All Conversations
+%ul
+  - @conversations.each do |con|
+    %li= link_to con.subject
+
+%br
+- @receipts.each do |receipt|
+  = receipt.message.body
+
+%h3 New Message
+= form_for :message, url: private_messages_path do |f|
+  = f.select :recipient_id, current_user.family.users.map { |u| [u.name, u.id] }
+
+  = f.label :subject
+  = f.text_field :subject
+
+  = f.label :body
+  = f.text_field :body
+
+  = f.submit 'Send Message', class: 'button tiny'

@@ -12,6 +12,10 @@
       %i.fa.fa-comments-o.fa-3x
       %h1 Message Board
       %p Post chores, events, sharables, and general information
+    = link_to profile_mailbox_path(current_user.profile), class: 'grid-item' do
+      %i.fa.fa-envelope-o.fa-3x
+      %h1 Private Messages
+      %p Internal messaging for private conversations
     %a.grid-item{:href => "javascript:void(0)"}
       %i.fa.fa-calendar.fa-3x
       %h1 Family Calendar

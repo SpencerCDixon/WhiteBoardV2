@@ -3,6 +3,7 @@ ruby '2.1.5'
 
 gem 'rails', '4.2.0'
 gem 'pg'
+gem 'mailboxer', github: 'lacco/mailboxer'
 
 # Assets
 gem 'uglifier', '>= 1.3.0'
@@ -24,7 +25,6 @@ gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
 
 group :development do
-  gem 'spring'
   gem 'dotenv-rails'
   gem 'mailcatcher'
   gem 'erb2haml'

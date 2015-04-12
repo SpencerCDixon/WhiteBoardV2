@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
   root "welcome#index"
 
-  resources :profiles, only: [:new, :create, :show]
+  resources :profiles, only: [:new, :create, :show] do
+    resource :mailbox, only: :show
+  end
 
   resources :families, only: [:new, :create] do
     resources :family_messages, only: [:create, :index]
@@ -11,4 +13,5 @@ Rails.application.routes.draw do
   end
 
   resources :family_invitations, only: [:new, :create, :show]
+  resources :private_messages, only: :create
 end
