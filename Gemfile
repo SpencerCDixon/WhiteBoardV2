@@ -12,6 +12,9 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'foundation-rails', '5.5.1.0'
 gem 'font-awesome-sass', '~> 4.3.0'
+gem 'bourbon'
+gem 'neat'
+gem 'refills'
 
 # Devise/Omniauth/User Setup
 gem 'therubyracer'

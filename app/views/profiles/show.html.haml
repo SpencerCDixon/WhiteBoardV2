@@ -3,22 +3,17 @@
 - unless current_user.has_family?
   = link_to 'Create or join family', new_family_path, class: "button"
 - else
-  .row
-    .small-4.columns
-      .callout.panel
-        = link_to 'Family Members',
-          family_members_path(current_user.family),
-          class: 'button tiny'
-
-    .small-4.columns
-      .callout.panel
-        = link_to 'Message Board',
-          family_family_messages_path(current_user.family),
-          class: "button tiny"
-
-    .small-4.columns
-      .callout.panel
-        = link_to 'Message Board',
-          family_family_messages_path(current_user.family),
-          class: "button tiny"
-
+  .grid-items-lines
+    = link_to family_members_path(current_user.family), class: 'grid-item' do
+      %i.fa.fa-users.fa-3x
+      %h1 Family Members
+      %p Manage and invite family members. Send private messages
+    = link_to family_family_messages_path(current_user.family), class: 'grid-item' do
+      %i.fa.fa-comments-o.fa-3x
+      %h1 Message Board
+      %p Post chores, events, sharables, and general information
+    %a.grid-item{:href => "javascript:void(0)"}
+      %i.fa.fa-calendar.fa-3x
+      %h1 Family Calendar
+      %p Feature coming soon...
+    .right-cover
