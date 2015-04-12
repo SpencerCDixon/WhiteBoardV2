@@ -10,11 +10,21 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  *= require foundation_and_overrides
-
  */
 
+// Bourbon Mixins
+@import 'bourbon';
+@import 'neat';
+@import 'refills/card';
+
+// Personal Modules
 @import 'modules/messages';
 @import 'modules/members';
+@import 'modules/devise';
+@import 'modules/buttons';
+@import 'modules/profile';
+
+// Font Awesome
+@import "font-awesome-sprockets";
+@import "font-awesome";
