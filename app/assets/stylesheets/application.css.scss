@@ -13,8 +13,9 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
-
  */
 
 @import 'modules/messages';
 @import 'modules/members';
+@import "font-awesome-sprockets";
+@import "font-awesome";
