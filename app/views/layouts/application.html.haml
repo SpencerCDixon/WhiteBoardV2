@@ -18,10 +18,12 @@
 
     = yield :hero
 
-    .row
+    .row.wrapper-for-content-outside-of-footer
       .small-12.columns
         #content
           ~ yield
+
+    = render 'layouts/footer'
 
     = javascript_include_tag "application"
 

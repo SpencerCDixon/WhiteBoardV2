@@ -1,3 +1,5 @@
+@import "foundation/functions";
+
 .message {
   padding: 1em;
   margin: .5em 0;
@@ -20,3 +22,15 @@
   background: #2ecc71;
 }
 
+.previous-day, .next-day {
+  color: black;
+  padding: .25em;
+  transition: background-color 0.5s ease;
+  border-radius: 8px;
+  &:hover {
+    background: black;
+    color: white;
+    border-radius: 8px;
+    transition: background-color 0.5s ease;
+  }
+}
