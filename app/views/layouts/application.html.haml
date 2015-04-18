@@ -18,10 +18,19 @@
 
     = yield :hero
 
-    .row.wrapper-for-content-outside-of-footer
-      .small-12.columns
-        #content
-          ~ yield
+    - if page_class == "welcome index"
+      .section-one
+        .row.wrapper-for-content-outside-of-footer{ class: page_class }
+          .small-12.columns
+            #content
+              ~ yield
+    - else
+      .row.wrapper-for-content-outside-of-footer{ class: page_class }
+        .small-12.columns
+          #content
+            ~ yield
+
+    = yield :section_two
 
     = render 'layouts/footer'
 

@@ -7,3 +7,33 @@
       = link_to new_user_registration_path do
         %button.cta Learn More
 
+.row.section-one
+  .large-4.columns
+    .selling-point
+      %i.fa.fa-heart.fa-4x.profile-icon
+      %h3.selling-title Become Closer With Your Kids
+      %p.secondary-text White Board's mission is to create a space where kids and adults can feel comfortable communicating with each other
+  .large-4.columns
+    .selling-point
+      %i.fa.fa-bar-chart.fa-4x.profile-icon
+      %h3.selling-title Properly Manage Your Family
+      %p.secondary-text Families are just as complex as businesses.  They need tools to help them flourish and succeed.
+  .large-4.columns
+    .selling-point
+      %i.fa.fa-comments-o.fa-4x.profile-icon
+      %h3.selling-title Stay In Touch With Family
+      %p.secondary-text Never miss an update from your family members again.  Some other text should go here this is all filler stuff.
+
+= content_for :section_two do
+  .hero
+    .hero-inner
+      .hero-copy
+        %h1.hero-title Sign Up To Get Early Access
+        %p.hero-subtitle Our emails only contain funny jokes and useful tips
+        .row
+          .large-12.columns
+            .row.collapse
+              .small-10.columns
+                = text_field_tag :sign_up, nil, placeholder: 'Email here'
+              .small-2.columns
+                = submit_tag 'Get Early Access', class: 'button postfix sign-up-button'
