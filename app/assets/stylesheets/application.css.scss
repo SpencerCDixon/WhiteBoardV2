@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require foundation_and_overrides
+ *= require animate
  */
 
 // Bourbon Mixins
@@ -35,3 +36,6 @@
 // Font Awesome
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+// Animate.css
+@import "animate";

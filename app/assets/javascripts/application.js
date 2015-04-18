@@ -16,3 +16,19 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+$(function() {
+  var heart = $('.fa-heart.profile-icon')
+  var barchart = $('.fa-bar-chart.profile-icon')
+  var comments = $('.fa-comments-o.profile-icon')
+
+  heart.addClass('animated fadeInDown');
+  barchart.addClass('animated fadeInDown');
+  comments.addClass('animated fadeInDown');
+
+  setTimeout(function() {
+    heart.removeClass('animated fadeInDown');
+    barchart.removeClass('animated fadeInDown');
+    comments.removeClass('animated fadeInDown');
+  }, 2000)
+});
