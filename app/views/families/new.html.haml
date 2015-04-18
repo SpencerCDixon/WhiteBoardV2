@@ -1,14 +1,10 @@
-%h1 Create or join a family
+%h1 Create a family
 
-%h2 Create:
 = form_for @family, url: families_path do |f|
   = f.label :name
   = f.text_field :name
 
-  = f.submit 'Create Family', class: "button"
+  = f.submit 'Create Family', class: "button tiny main-button"
 
-%h2 Join:
-
-%p feature coming soon
 
 

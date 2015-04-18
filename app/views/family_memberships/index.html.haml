@@ -11,17 +11,19 @@
   = f.label :name
   = f.text_field :name
 
-  = f.submit 'Send invite', class: "button success tiny"
+  = f.submit 'Send invite', class: "button main-button tiny"
 
 %h2 Family Members
 %table.table-minimal
   %thead
     %tr
+      %th
       %th Name
       %th Email
   %tbody
     - @members.each do |member|
       %tr
+        %td{width: 150}= image_tag member.avatar_url, class: 'avatar-img'
         %td= member.name
         %td= member.email
 
