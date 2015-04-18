@@ -1,10 +1,18 @@
-%h2.text-center
-  = "Message Board"
-  = params[:q].to_i.days.ago.strftime('%B %d, %Y')
+.row
+  .large-2.columns
+    = link_to family_family_messages_path(@family, q: params[:q].to_i + 1 ) do
+      %i.fa.fa-arrow-left.fa-2x.previous-day
 
-= link_to 'previous', family_family_messages_path(@family, q: params[:q].to_i + 1 )
-- unless @finder.page_one?
-  = link_to 'next', family_family_messages_path(@family, q: params[:q].to_i - 1)
+  .large-8.columns
+    %h2.text-center
+      = "Message Board"
+      = params[:q].to_i.days.ago.strftime('%B %d, %Y')
+    %hr
+
+  .large-2.columns
+    - unless @finder.page_one?
+      = link_to family_family_messages_path(@family, q: params[:q].to_i - 1) do
+        %i.fa.fa-arrow-right.fa-2x.right.next-day
 
 = render 'message'
 
@@ -13,21 +21,42 @@
     %h2 Sharables
     %ul
       - @sharables.each do |message|
-        %li.message.sharable= "#{message.message} - by #{message.user.name}, #{time_ago_in_words(message.created_at)} ago"
+        .comment
+          .comment-image
+            %i.fa.fa-user.fa-3x
+          .comment-content
+            %p= message.message
+            %p.comment-detail= "by #{message.user.name}, #{time_ago_in_words(message.created_at)} ago"
 
     %h2 Chores
     %ul
       - @chores.each do |message|
-        %li.message.chore= "#{message.message} - by #{message.user.name}, #{time_ago_in_words(message.created_at)} ago"
+        .comment
+          .comment-image
+            %i.fa.fa-user.fa-3x
+          .comment-content
+            %p= message.message
+            %p.comment-detail= "by #{message.user.name}, #{time_ago_in_words(message.created_at)} ago"
+
 
     %h2 Events
     %ul
       - @events.each do |message|
-        %li.message.event= "#{message.message} - by #{message.user.name}, #{time_ago_in_words(message.created_at)} ago"
+        .comment
+          .comment-image
+            %i.fa.fa-user.fa-3x
+          .comment-content
+            %p= message.message
+            %p.comment-detail= "by #{message.user.name}, #{time_ago_in_words(message.created_at)} ago"
 
   .large-6.columns
     %h2 General
     %ul
       - @general.each do |message|
-        %li.message.general= "#{message.message} - by #{message.user.name}, #{time_ago_in_words(message.created_at)} ago"
+        .comment
+          .comment-image
+            %i.fa.fa-user.fa-3x
+          .comment-content
+            %p= message.message
+            %p.comment-detail= "by #{message.user.name}, #{time_ago_in_words(message.created_at)} ago"
 
