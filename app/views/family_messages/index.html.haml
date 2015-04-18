@@ -1,7 +1,10 @@
-%h2.text-center= "Message Board - #{Date.today.strftime('%B %d, %Y')}"
+%h2.text-center
+  = "Message Board"
+  = params[:q].to_i.days.ago.strftime('%B %d, %Y')
 
-= link_to 'previous', family_family_messages_path(@family, q: 1)
-= link_to_unless @finder.page_one?, 'next', family_family_messages_path(@family, q: 0)
+= link_to 'previous', family_family_messages_path(@family, q: params[:q].to_i + 1 )
+- unless @finder.page_one?
+  = link_to 'next', family_family_messages_path(@family, q: params[:q].to_i - 1)
 
 = render 'message'
 
