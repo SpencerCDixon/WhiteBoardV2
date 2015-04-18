@@ -22,6 +22,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
+gem 'gravtastic'
 
 group :development do
   gem 'spring'

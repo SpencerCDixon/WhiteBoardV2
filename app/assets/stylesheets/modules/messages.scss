@@ -34,3 +34,9 @@
     transition: background-color 0.5s ease;
   }
 }
+
+.comment .comment-image > img {
+  background: none;
+  border-radius: 50%;
+  padding: 0;
+}

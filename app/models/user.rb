@@ -23,6 +23,9 @@ class User < ActiveRecord::Base
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
   validates :name, presence: true
 
+  include Gravtastic
+  is_gravtastic
+
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
     # Get the identity and user if they exist
@@ -66,6 +69,10 @@ class User < ActiveRecord::Base
 
   def family
     families.first
+  end
+
+  def avatar_url
+    gravatar_url
   end
 
   def email_verified?
