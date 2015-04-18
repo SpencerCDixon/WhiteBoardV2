@@ -3,12 +3,11 @@ class FamilyMessagesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @general = @family.general_messages
-    @events = @family.event_messages
-    @chores = @family.chore_messages
-    @sharables = @family.sharable_messages
-    @message = FamilyMessage.new
-    @messages = current_user.family.family_messages
+    @finder = MessageFinder.new(params[:q], @family)
+    @general = @finder.general
+    @events = @finder.event
+    @chores = @finder.chore
+    @sharables = @finder.sharable
   end
 
   def create
@@ -30,6 +29,6 @@ class FamilyMessagesController < ApplicationController
   end
 
   def family_message_params
-    params.require(:family_message).permit(:message, :message_category_id)
+    params.require(:family_message).permit(:message, :category)
   end
 end

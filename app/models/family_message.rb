@@ -1,5 +1,8 @@
 class FamilyMessage < ActiveRecord::Base
+  CATEGORIES = %w[general sharable event chore]
   belongs_to :user
   belongs_to :family
-  belongs_to :message_category
+
+  validates :category,
+    inclusion: { in: %w{general sharable event chore} }
 end

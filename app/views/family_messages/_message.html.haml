@@ -1,0 +1,11 @@
+%a.button.expand{"data-reveal-id" => "myModal", :href => "#"} Add A Message To Today's Board
+#myModal.reveal-modal{"aria-hidden" => "true", "aria-labelledby" => "modalTitle", "data-reveal" => "", :role => "dialog"}
+  = form_for [current_user.family, FamilyMessage.new] do |f|
+    = f.label :message
+    = f.text_area :message
+
+    = f.label :category
+    = f.select :category, FamilyMessage::CATEGORIES
+
+    = f.submit 'Create Message', class: 'button tiny'
+  %a.close-reveal-modal{"aria-label" => "Close"} ×

@@ -5,7 +5,3 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
-MessageCategory::CATEGORIES.each do |category_name|
-  MessageCategory.find_or_create_by(name: category_name)
-end

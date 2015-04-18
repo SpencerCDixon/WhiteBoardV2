@@ -23,4 +23,12 @@ FactoryGirl.define do
   factory :message_category do
     name 'general'
   end
+
+  factory :family_message do
+    user
+    family
+    message 'Lets go snowboarding today!'
+    category 'general'
+  end
 end
+
