@@ -1,6 +1,6 @@
 .row
   .large-2.columns
-    = link_to family_family_messages_path(@family, q: params[:q].to_i + 1 ) do
+    = link_to family_family_messages_path(@family, q: params[:q].to_i + 1 ), id: "prev-day" do
       %i.fa.fa-arrow-left.fa-2x.previous-day
 
   .large-8.columns

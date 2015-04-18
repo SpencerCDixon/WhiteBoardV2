@@ -46,4 +46,18 @@ describe MessageFinder do
       expect(finder.sharable).to include message
     end
   end
+
+  describe '#page_one?' do
+    it 'returns true if days_ago is equal to 0' do
+      message = FactoryGirl.create(:family_message, category: 'sharable')
+      finder = MessageFinder.new(0, message.family)
+      expect(finder.page_one?).to eq true
+    end
+
+    it 'returns false if days_ago is not 0' do
+      message = FactoryGirl.create(:family_message, category: 'sharable')
+      finder = MessageFinder.new(1, message.family)
+      expect(finder.page_one?).to eq false
+    end
+  end
 end

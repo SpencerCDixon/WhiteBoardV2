@@ -40,13 +40,17 @@ feature 'message board only shows current day' do
       expect(page).to have_content 'This should show for today'
       expect(page).to_not have_content 'This should not be visible'
 
-      click_on 'previous'
+      find(:css, '#prev-day').click
       expect(page).to_not have_content 'This should show for today'
       expect(page).to have_content 'This should not be visible'
     end
   end
 
   context 'as a visitor' do
-    scenario 'I get redirected'
+    scenario 'I get redirected' do
+      family = FactoryGirl.create(:family)
+      visit family_family_messages_path(family)
+      expect(page).to have_content('sign in')
+    end
   end
 end
