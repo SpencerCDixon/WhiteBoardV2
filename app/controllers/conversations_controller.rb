@@ -5,6 +5,7 @@ class ConversationsController < ApplicationController
 
   def show
     @convo = Conversation.find(params[:id])
+    @messages = @convo.private_messages.order(:created_at)
   end
 
   def create

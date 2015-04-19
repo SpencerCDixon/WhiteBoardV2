@@ -1,1 +1,18 @@
 %h1 Convo With Person
+
+- @messages.each do |m|
+  .comment
+    .comment-image
+      = image_tag m.user.avatar_url
+    .comment-content
+      %p= m.body
+      %p.comment-detail= "by #{m.user.name}, #{time_ago_in_words(m.created_at)} ago"
+
+= form_for [@convo, PrivateMessage.new] do |f|
+  = f.label :body
+  = f.text_area :body
+
+  = f.submit 'Reply', class: "button tiny main-button"
+
+
+
