@@ -12,5 +12,5 @@ Rails.application.routes.draw do
 
   resources :family_invitations, only: [:new, :create, :show]
 
-  resources :conversations, only: [:index, :create]
+  resources :conversations, only: [:index, :create, :show]
 end
