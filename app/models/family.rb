@@ -5,5 +5,4 @@ class Family < ActiveRecord::Base
   has_many :family_invitations
 
   validates :name, presence: true
-
 end

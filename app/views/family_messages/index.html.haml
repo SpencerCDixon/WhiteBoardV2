@@ -19,44 +19,40 @@
 .row
   .large-6.columns
     %h2 Sharables
-    %ul
-      - @sharables.each do |message|
-        .comment
-          .comment-image
-            = image_tag message.user.avatar_url
-          .comment-content
-            %p= message.message
-            %p.comment-detail= "by #{message.user.name}, #{time_ago_in_words(message.created_at)} ago"
+    - @sharables.each do |message|
+      .comment
+        .comment-image
+          = image_tag message.user.avatar_url
+        .comment-content
+          %p= message.message
+          %p.comment-detail= "by #{message.user.name}, #{time_ago_in_words(message.created_at)} ago"
 
     %h2 Chores
-    %ul
-      - @chores.each do |message|
-        .comment
-          .comment-image
-            = image_tag message.user.avatar_url
-          .comment-content
-            %p= message.message
-            %p.comment-detail= "by #{message.user.name}, #{time_ago_in_words(message.created_at)} ago"
+    - @chores.each do |message|
+      .comment
+        .comment-image
+          = image_tag message.user.avatar_url
+        .comment-content
+          %p= message.message
+          %p.comment-detail= "by #{message.user.name}, #{time_ago_in_words(message.created_at)} ago"
 
 
     %h2 Events
-    %ul
-      - @events.each do |message|
-        .comment
-          .comment-image
-            = image_tag message.user.avatar_url
-          .comment-content
-            %p= message.message
-            %p.comment-detail= "by #{message.user.name}, #{time_ago_in_words(message.created_at)} ago"
+    - @events.each do |message|
+      .comment
+        .comment-image
+          = image_tag message.user.avatar_url
+        .comment-content
+          %p= message.message
+          %p.comment-detail= "by #{message.user.name}, #{time_ago_in_words(message.created_at)} ago"
 
   .large-6.columns
     %h2 General
-    %ul
-      - @general.each do |message|
-        .comment
-          .comment-image
-            = image_tag message.user.avatar_url
-          .comment-content
-            %p= message.message
-            %p.comment-detail= "by #{message.user.name}, #{time_ago_in_words(message.created_at)} ago"
+    - @general.each do |message|
+      .comment
+        .comment-image
+          = image_tag message.user.avatar_url
+        .comment-content
+          %p= message.message
+          %p.comment-detail= "by #{message.user.name}, #{time_ago_in_words(message.created_at)} ago"
 

@@ -29,6 +29,7 @@ feature 'view family details on profile' do
         sign_in_as user
 
         visit profile_path(user.profile)
+        click_on 'Family Members'
         expect(page).to have_content(brother.user.name)
         expect(page).to have_content(user.name)
       end

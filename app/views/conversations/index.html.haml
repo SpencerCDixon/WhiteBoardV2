@@ -1,0 +1,23 @@
+%h1 Start a conversation
+
+= form_for :conversation, url: conversations_path do |f|
+  = f.label :to
+  = f.select :to, current_user.family.users.map { |f| [f.name, f.id] }
+
+  = f.label :subject
+  = f.text_field :subject
+
+  = f.label :body
+  = f.text_area :body
+
+  = f.submit 'Send message', class: "button tiny main-button"
+
+%h2 Your Conversations:
+
+%ul
+  - @convos.each do |c|
+    %li
+      = link_to conversation_path(c) do
+        = "Conversation with: #{c.users.map {|u| u.name }.join(', ')} about #{c.subject}"
+
+

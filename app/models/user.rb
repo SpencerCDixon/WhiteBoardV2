@@ -18,6 +18,10 @@ class User < ActiveRecord::Base
   has_many :family_invitations,
     dependent: :destroy
 
+  has_many :participants
+  has_many :conversations, through: :participants
+  has_many :private_messages
+
   after_create :build_profile
 
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
